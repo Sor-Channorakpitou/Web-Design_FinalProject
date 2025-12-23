@@ -93,6 +93,7 @@
         btn.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
             btn.textContent = document.documentElement.classList.contains('dark') ? '🌓︎' : '🌓︎'; });
+        if (localStorage.getItem("theme") === "dark") { document.documentElement.classList.add("dark"); }
     </script>
 </body>
 </html>
