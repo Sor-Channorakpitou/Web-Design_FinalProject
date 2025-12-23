@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Into Account</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script>
     tailwind.config = {
       darkMode: 'class', 
@@ -39,7 +39,7 @@
 </head>
 <body class="font-[Candara] bg-gray-100 dark:bg-gray-900 min-h-screen flex items-center justify-center">
   <div class="flex">
-      <a href="home.html" class="fixed top-5 font-bold text-purple-600 left-5 z-50 px-4 py-2 text-xl px-3 dark:text-white">← <span class="hover:underline">Home</span></a>
+      <a href="home.html" class="fixed top-5 font-bold text-purple-600 left-5 z-50 px-4 py-2 text-xl px-3 dark:text-white"><i class="fa-solid fa-arrow-left"></i></a>
       <button id="themeToggle" class="fixed top-5 right-5 z-50 px-4 py-2 text-xl px-3 dark:text-white">🌓︎</button>
   </div>
 
@@ -56,26 +56,16 @@
            text-white p-40 flex flex-col justify-center items-center
            lg:clip-path-custom">
     <h2 class="text-2xl font-bold mb-4 text-center">Already Signed Up?</h2>
-    <p class="text-lg text-center mb-6 opacity-90 max-w-md">
-      Log in to your account so you can continue purchasing and view your account
-    </p>
-    <button
-      onclick="showLoginUI()"
-      class="border-2 px-6 py-2 hover:bg-white hover:text-purple-700 transition">
-      LOG IN
-    </button>
+    <p class="text-lg text-center mb-6 opacity-90 max-w-md">Log in to your account so you can continue purchasing and view your account</p>
+    <button onclick="showLoginUI()" class="border-2 px-6 py-2 hover:bg-white hover:text-purple-700 transition">LOG IN</button>
   </div>
 
   <!-- Sign up -->
   <div class="w-full lg:w-1/2 px-6 md:px-10 py-10 flex flex-col justify-center items-center">
     <img src="Images/logo.png" alt="logo" class="w-20 self-center lg:self-end">
-    <h2 class="text-2xl font-bold mb-2 text-gray-800 dark:text-white">
-      Sign Up for an Account
-    </h2>
+    <h2 class="text-2xl font-bold mb-2 text-gray-800 dark:text-white">Sign Up for an Account</h2>
 
-    <p class="text-sm mb-6 text-gray-500 dark:text-gray-400 text-center">
-      Let’s get all set up so you can start shopping.
-    </p>
+    <p class="text-sm mb-6 text-gray-500 dark:text-gray-400 text-center">Let’s get all set up so you can start shopping.</p>
 
     <form class="space-y-4 w-full">
           <div class="grid grid-cols-2">

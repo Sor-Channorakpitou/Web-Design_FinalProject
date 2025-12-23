@@ -129,28 +129,28 @@
               document.documentElement.classList.contains('dark') ? '🌓︎' : '🌓︎';
           });
 
-      // Search input
-      document.getElementById('searchInput')?.addEventListener('input', (e) => {
-        console.log('Searching:', e.target.value);
-      });
+          // Search input
+          document.getElementById('searchInput')?.addEventListener('input', (e) => {
+            console.log('Searching:', e.target.value);
+          });
 
-      // Call button
-      document.getElementById('callBtn').addEventListener('click', () => {
-        alert('Calling +855 71 772 9859');
-      });
+          // Call button
+          document.getElementById('callBtn').addEventListener('click', () => {
+            alert('Calling +855 71 772 9859');
+          });
 
-      // Send message
-      document.getElementById('sendBtn').addEventListener('click', () => {
-        alert('Message sent!');
-      });
+          // Send message
+          document.getElementById('sendBtn').addEventListener('click', () => {
+            alert('Message sent!');
+          });
 
-      // Active nav link
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('underline'));
-          link.classList.add('underline');
-        });
-      });
+          // Active nav link
+          document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+              document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('underline'));
+              link.classList.add('underline');
+            });
+          });
     </script>
 
 </body>
