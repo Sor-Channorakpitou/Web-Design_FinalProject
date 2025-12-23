@@ -262,13 +262,15 @@
     </footer>
 
     <script>
+        
       const btn = document.getElementById('themeToggle');
-
-      btn.addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark');
-        btn.textContent =
+        btn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            btn.textContent =
           document.documentElement.classList.contains('dark') ? '🌓︎' : '🌓︎';
-      });
+        });
+
+        if (localStorage.getItem("theme") === "dark") { document.documentElement.classList.add("dark"); }
     </script>
 
 </body>
