@@ -3,27 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+    <title>History</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="Darkmode.js"></script>
     <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            fontFamily: {
-              'Candara': ['Candara', 'sans-serif']
-            }
-          }
+        tailwind.config = {
+            darkMode: 'class',
         }
-      }
     </script>
     <style type="text/tailwindcss">
         @layer components {
-          .mycolor {
-              background: linear-gradient(90deg, #5400FF, #8453DA);
-          }
-
           .btn {
               @apply px-6 py-3 rounded-full font-bold text-white bg-gradient-to-r from-purple-600 to-indigo-600 shadow-lg;
           }
@@ -52,7 +42,7 @@
             </div>
 
             <ul class="hidden md:flex space-x-8 text-lg font-bold">
-                <li><a href="home.html" class="hover:text-purple-600">Home</a></li>
+                <li><a href="Home.html" class="hover:text-purple-600">Home</a></li>
                 <li><a href="Products.html" class="hover:text-purple-600">Products</a></li>
                 <li><a href="Service.html" class="hover:text-purple-600">Services</a></li>
                 <li><a href="Contact.html" class="hover:text-purple-600">Contact</a></li>
@@ -164,23 +154,14 @@
     </main>
 </div>
 
-<script>
-        const btn = document.getElementById('themeToggle');
-
-        btn.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            btn.textContent =
-            document.documentElement.classList.contains('dark') ? '🌓︎' : '🌓︎';
-        });
-
+    <script>
         function viewOrder(id) {
-        window.location.href = `OrderDetails.html?id=${id}`;
+            window.location.href = `OrderDetails.html?id=${id}`;
         }
         function toggleMenu() {
-        document.getElementById('mobileMenu').classList.toggle('hidden');
+            document.getElementById('mobileMenu').classList.toggle('hidden');
         }
-        updateTotals();
-</script>
+    </script>
 
 </body>
 </html>

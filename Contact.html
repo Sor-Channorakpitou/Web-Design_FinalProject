@@ -6,6 +6,7 @@
     <title>Contact</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="Darkmode.js"></script>
     <script>
         tailwind.config = {
           darkMode: 'class',
@@ -131,18 +132,8 @@
         </div>
     </footer>
     <script>
-          const btn = document.getElementById('themeToggle');
-
-          btn.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            btn.textContent =
-              document.documentElement.classList.contains('dark') ? '🌓︎' : '🌓︎';
-          });
-          if (localStorage.getItem("theme") === "dark") { document.documentElement.classList.add("dark"); }
-
           // Send message
           document.getElementById('sendBtn').addEventListener('click', () => { alert('Message sent!'); });
-
     </script>
 
 </body>

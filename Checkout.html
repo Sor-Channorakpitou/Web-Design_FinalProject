@@ -4,40 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Checkout</title>
-
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="Darkmode.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script>
         tailwind.config = {
-        darkMode: 'class',
-        theme: {
-            extend: {
-            colors: {
-                primary: '#7C3AED'
-            }
-            }
-        }
+            darkMode: 'class',
         }
     </script>
-
   <style type="text/tailwindcss">
-    @layer components {
-      .input {
-        @apply w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm
-        text-gray-800 focus:ring-2 focus:ring-primary focus:outline-none
-        dark:bg-gray-700 dark:border-gray-600 dark:text-white;
+      @layer components {
+        .input {
+          @apply w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 focus:ring-2 focus:ring-primary focus:outline-none
+          dark:bg-gray-700 dark:border-gray-600 dark:text-white;
+        }
+        .card {
+          @apply bg-white rounded-xl shadow-md p-6 dark:bg-gray-800;
+        }
+        .pay-btn {
+          @apply flex items-center justify-center gap-2 w-full py-3 rounded-md border font-semibold cursor-pointer;
+        }
+        .pay-active {
+          @apply border-primary text-primary;
+        }
       }
-      .card {
-        @apply bg-white rounded-xl shadow-md p-6 dark:bg-gray-800;
-      }
-      .pay-btn {
-        @apply flex items-center justify-center gap-2 w-full py-3
-        rounded-md border font-semibold cursor-pointer;
-      }
-      .pay-active {
-        @apply border-primary text-primary;
-      }
-    }
   </style>
 </head>
 
@@ -50,7 +40,7 @@
 
   <div class="lg:col-span-2 space-y-6">
 
-    <!-- Shipping -->
+    <!-- right -->
     <div class="card">
       <h2 class="text-xl font-bold text-primary mb-4">Shipping Address</h2>
 
@@ -76,9 +66,7 @@
         <button id="cardBtn" class="pay-btn pay-active">
           <i class="fa-regular fa-credit-card"></i> Card
         </button>
-        <button id="walletBtn" class="pay-btn">
-          <i class="fa-solid fa-wallet"></i> Wallet | QR
-        </button>
+        <button id="walletBtn" class="pay-btn"><i class="fa-solid fa-wallet"></i> Wallet | QR</button>
       </div>
 
       <!-- Card Form -->
@@ -114,13 +102,13 @@
     </div>
 
     <div class="text-sm space-y-2 border-t border-gray-300 dark:border-gray-600 pt-4">
-      <div class="flex justify-between"><span>Sub total</span><span>$399.99</span></div>
-      <div class="flex justify-between"><span>Shipping</span><span>$30.00</span></div>
-      <div class="flex justify-between"><span>Tax</span><span>$8.60</span></div>
+        <div class="flex justify-between"><span>Sub total</span><span>$399.99</span></div>
+        <div class="flex justify-between"><span>Shipping</span><span>$30.00</span></div>
+        <div class="flex justify-between"><span>Tax</span><span>$8.60</span></div>
     </div>
 
     <div class="flex justify-between font-bold text-lg mt-4">
-      <span>Total</span><span>$411.59</span>
+        <span>Total</span><span>$411.59</span>
     </div>
 
     <button class="mt-6 w-full bg-primary text-white py-3 rounded-md font-semibold">
@@ -130,39 +118,27 @@
 
 </div>
 
-<script>
-        const themeBtn = document.getElementById("themeToggle");
-        const cardBtn = document.getElementById("cardBtn");
-        const walletBtn = document.getElementById("walletBtn");
-        const cardForm = document.getElementById("cardForm");
-        const walletForm = document.getElementById("walletForm");
+  <script>
+          const themeBtn = document.getElementById("themeToggle");
+          const cardBtn = document.getElementById("cardBtn");
+          const walletBtn = document.getElementById("walletBtn");
+          const cardForm = document.getElementById("cardForm");
+          const walletForm = document.getElementById("walletForm");
 
-        if (localStorage.getItem("theme") === "dark") {
-            document.documentElement.classList.add("dark");
-        }
+          cardBtn.onclick = () => {
+              cardBtn.classList.add("pay-active");
+              walletBtn.classList.remove("pay-active");
+              cardForm.classList.remove("hidden");
+              walletForm.classList.add("hidden");
+          };
 
-        themeBtn.onclick = () => {
-            document.documentElement.classList.toggle("dark");
-            localStorage.setItem(
-            "theme",
-            document.documentElement.classList.contains("dark") ? "dark" : "light"
-            );
-        };
-
-        cardBtn.onclick = () => {
-            cardBtn.classList.add("pay-active");
-            walletBtn.classList.remove("pay-active");
-            cardForm.classList.remove("hidden");
-            walletForm.classList.add("hidden");
-        };
-
-        walletBtn.onclick = () => {
-            walletBtn.classList.add("pay-active");
-            cardBtn.classList.remove("pay-active");
-            walletForm.classList.remove("hidden");
-            cardForm.classList.add("hidden");
-        };
-</script>
+          walletBtn.onclick = () => {
+              walletBtn.classList.add("pay-active");
+              cardBtn.classList.remove("pay-active");
+              walletForm.classList.remove("hidden");
+              cardForm.classList.add("hidden");
+          };
+  </script>
 
 </body>
 </html>

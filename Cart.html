@@ -3,34 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+    <title>Cart</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="Darkmode.js"></script>
     <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            fontFamily: {
-              'Candara': ['Candara', 'sans-serif']
-            }
-          }
+        tailwind.config = {
+            darkMode: 'class',
         }
-      }
     </script>
     <style type="text/tailwindcss">
         @layer components {
-          .mycolor {
-              background: linear-gradient(90deg, #5400FF, #8453DA);
-          }
+            .btn {
+                @apply px-6 py-3 rounded-full font-bold text-white bg-gradient-to-r from-purple-600 to-indigo-600 shadow-lg;
+            }
 
-          .btn {
-              @apply px-6 py-3 rounded-full font-bold text-white bg-gradient-to-r from-purple-600 to-indigo-600 shadow-lg;
-          }
-
-          .zoom {
-              @apply transition-all duration-300 ease-out hover:scale-110 hover:shadow-2xl hover:from-purple-700 hover:to-indigo-700;
-          }
+            .zoom {
+                @apply transition-all duration-300 ease-out hover:scale-110 hover:shadow-2xl hover:from-purple-700 hover:to-indigo-700;
+            }
         }
     </style>
 </head>
@@ -52,7 +42,7 @@
             </div>
 
             <ul class="hidden md:flex space-x-8 text-lg font-bold">
-                <li><a href="home.html" class="hover:text-purple-600">Home</a></li>
+                <li><a href="Home.html" class="hover:text-purple-600">Home</a></li>
                 <li><a href="Products.html" class="hover:text-purple-600">Products</a></li>
                 <li><a href="Service.html" class="hover:text-purple-600">Services</a></li>
                 <li><a href="Contact.html" class="hover:text-purple-600">Contact</a></li>
@@ -62,7 +52,7 @@
                 <a href="Account.html"><i class="fa-solid fa-circle-user text-2xl hover:text-purple-600 zoom"></i></a>
             </div>
             <button id="themeToggle" class="text-xl px-3">🌓︎</button>
-
+            <!-- mobile sidebar-->
         <div id="mobileMenu"
             class="hidden lg:hidden absolute top-[64px] bg-gradient-to-br from-[#6D28D9] to-[#7C3AED] text-white rounded-2xl shadow-2xl px-8 py-6 z-50">
 
@@ -77,257 +67,247 @@
         </nav>
     </header>
 
-<div class="flex max-w-7xl mx-auto mt-8 gap-6 px-4 ">
-  <!-- Sidebar -->
-  <aside class="hidden lg:block w-64 bg-gradient-to-br from-[#5400FF] to-[#8453DA] text-white rounded-xl p-6">
-    <div class="mb-8">
-        <h2 class="flex justify-center text-4xl font-bold mb-2 border-rounded">VTStore</h2>
-        <hr>
-    </div>
-    <ul class="space-y-4 text-xl font-semibold mb-60">
-            <li class="hover:opacity-80 cursor-pointer"><a href="Products.html">Products</a></li>
-            <li class="hover:opacity-80 cursor-pointer"><a href="Cart.html">Cart</a></li>
-            <li class="hover:opacity-80 cursor-pointer"><a href="Checkout.html">Check out</a></li>
-            <li class="hover:opacity-80 cursor-pointer"><a href="History.html">Order History</a></li>
-            <li class="hover:opacity-80 cursor-pointer"><a href="#">My Account</a></li>
-    </ul>
-  </aside>
+    <div class="flex max-w-7xl mx-auto mt-8 gap-6 px-4 ">
+    <!-- sidebar -->
+    <aside class="hidden lg:block w-64 bg-gradient-to-br from-[#5400FF] to-[#8453DA] text-white rounded-xl p-6">
+        <div class="mb-8">
+            <h2 class="flex justify-center text-4xl font-bold mb-2 border-rounded">VTStore</h2>
+            <hr>
+        </div>
+        <ul class="space-y-4 text-xl font-semibold mb-60">
+                <li class="hover:opacity-80 cursor-pointer"><a href="Products.html">Products</a></li>
+                <li class="hover:opacity-80 cursor-pointer"><a href="Cart.html">Cart</a></li>
+                <li class="hover:opacity-80 cursor-pointer"><a href="Checkout.html">Check out</a></li>
+                <li class="hover:opacity-80 cursor-pointer"><a href="History.html">Order History</a></li>
+                <li class="hover:opacity-80 cursor-pointer"><a href="Account.html">My Account</a></li>
+        </ul>
+    </aside>
 
-  <!-- Main -->
-    <main class="flex-1 bg-white dark:bg-gray-800 rounded-xl p-6">
-    <h1 class="text-3xl font-bold text-purple-600 mb-6">MY CART</h1>
+        <main class="flex-1 bg-white dark:bg-gray-800 rounded-xl p-6">
+        <h1 class="text-3xl font-bold text-purple-600 mb-6">MY CART</h1>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-        <!-- CART ITEMS -->
-        <div class="lg:col-span-2 space-y-4" id="cartItems">
+            <!-- cart items -->
+            <div class="lg:col-span-2 space-y-4" id="cartItems">
 
-        <!-- ITEM1 -->
-        <div class="dark:bg-gray-700 cart-item grid grid-cols-1 sm:grid-cols-3 items-center gap-4 border rounded-lg p-4" data-price="15.99">
-        <div class="flex items-center gap-4 justify-center sm:justify-start">
-            <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" class="w-16">
-            <span class="font-semibold">Mouse</span>
-        </div>
+            <!-- ITEM1 -->
+            <div class="dark:bg-gray-700 cart-item grid grid-cols-1 sm:grid-cols-3 items-center gap-4 border rounded-lg p-4" data-price="15.99">
+            <div class="flex items-center gap-4 justify-center sm:justify-start">
+                <img src="Images/Cart/mouse.png" class="w-16">
+                <span class="font-semibold">Mouse</span>
+            </div>
 
-        <div class="flex justify-center items-center gap-3">
-            <button onclick="changeQty(this,-1)" class="px-3 py-1 border rounded">−</button>
-            <span class="qty min-w-[24px] text-center">2</span>
-            <button onclick="changeQty(this,1)" class="px-3 py-1 border rounded">+</button>
-        </div>
+            <div class="flex justify-center items-center gap-3">
+                <button onclick="changeQty(this,-1)" class="px-3 py-1 border rounded">−</button>
+                <span class="qty min-w-[24px] text-center">2</span>
+                <button onclick="changeQty(this,1)" class="px-3 py-1 border rounded">+</button>
+            </div>
 
-        <div class="flex justify-center sm:justify-end items-center gap-4">
-            <span class="price font-semibold">$31.98</span>
-            <button onclick="removeItem(this)">✕</button>
-        </div>
-        </div>
-        <!-- ITEM2 -->
-        <div class="dark:bg-gray-700 cart-item grid grid-cols-1 sm:grid-cols-3 items-center gap-4 border rounded-lg p-4" data-price="15.99">
-        <div class="flex items-center gap-4 justify-center sm:justify-start">
-            <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" class="w-16">
-            <span class="font-semibold">Mouse</span>
-        </div>
+            <div class="flex justify-center sm:justify-end items-center gap-4">
+                <span class="price font-semibold">$31.98</span>
+                <button onclick="removeItem(this)">✕</button>
+            </div>
+            </div>
+            <!-- ITEM2 -->
+            <div class="dark:bg-gray-700 cart-item grid grid-cols-1 sm:grid-cols-3 items-center gap-4 border rounded-lg p-4" data-price="15.99">
+            <div class="flex items-center gap-4 justify-center sm:justify-start">
+                <img src="Images/Cart/mouse.png" class="w-16">
+                <span class="font-semibold">Mouse</span>
+            </div>
 
-        <div class="flex justify-center items-center gap-3">
-            <button onclick="changeQty(this,-1)" class="px-3 py-1 border rounded">−</button>
-            <span class="qty min-w-[24px] text-center">2</span>
-            <button onclick="changeQty(this,1)" class="px-3 py-1 border rounded">+</button>
-        </div>
+            <div class="flex justify-center items-center gap-3">
+                <button onclick="changeQty(this,-1)" class="px-3 py-1 border rounded">−</button>
+                <span class="qty min-w-[24px] text-center">2</span>
+                <button onclick="changeQty(this,1)" class="px-3 py-1 border rounded">+</button>
+            </div>
 
-        <div class="flex justify-center sm:justify-end items-center gap-4">
-            <span class="price font-semibold">$31.98</span>
-            <button onclick="removeItem(this)">✕</button>
-        </div>
-        </div>
-        <!-- ITEM3 -->
-        <div class="dark:bg-gray-700 cart-item grid grid-cols-1 sm:grid-cols-3 items-center gap-4 border rounded-lg p-4" data-price="15.99">
-        <div class="flex items-center gap-4 justify-center sm:justify-start">
-            <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" class="w-16">
-            <span class="font-semibold">Mouse</span>
-        </div>
+            <div class="flex justify-center sm:justify-end items-center gap-4">
+                <span class="price font-semibold">$31.98</span>
+                <button onclick="removeItem(this)">✕</button>
+            </div>
+            </div>
+            <!-- ITEM3 -->
+            <div class="dark:bg-gray-700 cart-item grid grid-cols-1 sm:grid-cols-3 items-center gap-4 border rounded-lg p-4" data-price="15.99">
+            <div class="flex items-center gap-4 justify-center sm:justify-start">
+                <img src="Images/Cart/mouse.png" class="w-16">
+                <span class="font-semibold">Mouse</span>
+            </div>
 
-        <div class="flex justify-center items-center gap-3">
-            <button onclick="changeQty(this,-1)" class="px-3 py-1 border rounded">−</button>
-            <span class="qty min-w-[24px] text-center">2</span>
-            <button onclick="changeQty(this,1)" class="px-3 py-1 border rounded">+</button>
-        </div>
+            <div class="flex justify-center items-center gap-3">
+                <button onclick="changeQty(this,-1)" class="px-3 py-1 border rounded">−</button>
+                <span class="qty min-w-[24px] text-center">2</span>
+                <button onclick="changeQty(this,1)" class="px-3 py-1 border rounded">+</button>
+            </div>
 
-        <div class="flex justify-center sm:justify-end items-center gap-4">
-            <span class="price font-semibold">$31.98</span>
-            <button onclick="removeItem(this)">✕</button>
-        </div>
-        </div>
-        <!-- ITEM4 -->
-        <div class="dark:bg-gray-700 cart-item grid grid-cols-1 sm:grid-cols-3 items-center gap-4 border rounded-lg p-4" data-price="15.99">
-        <div class="flex items-center gap-4 justify-center sm:justify-start">
-            <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" class="w-16">
-            <span class="font-semibold">Mouse</span>
-        </div>
+            <div class="flex justify-center sm:justify-end items-center gap-4">
+                <span class="price font-semibold">$31.98</span>
+                <button onclick="removeItem(this)">✕</button>
+            </div>
+            </div>
+            <!-- ITEM4 -->
+            <div class="dark:bg-gray-700 cart-item grid grid-cols-1 sm:grid-cols-3 items-center gap-4 border rounded-lg p-4" data-price="15.99">
+            <div class="flex items-center gap-4 justify-center sm:justify-start">
+                <img src="Images/Cart/mouse.png" class="w-16">
+                <span class="font-semibold">Mouse</span>
+            </div>
 
-        <div class="flex justify-center items-center gap-3">
-            <button onclick="changeQty(this,-1)" class="px-3 py-1 border rounded">−</button>
-            <span class="qty min-w-[24px] text-center">2</span>
-            <button onclick="changeQty(this,1)" class="px-3 py-1 border rounded">+</button>
-        </div>
+            <div class="flex justify-center items-center gap-3">
+                <button onclick="changeQty(this,-1)" class="px-3 py-1 border rounded">−</button>
+                <span class="qty min-w-[24px] text-center">2</span>
+                <button onclick="changeQty(this,1)" class="px-3 py-1 border rounded">+</button>
+            </div>
 
-        <div class="flex justify-center sm:justify-end items-center gap-4">
-            <span class="price font-semibold">$31.98</span>
-            <button onclick="removeItem(this)">✕</button>
-        </div>
-        </div>
-        <!-- ITEM5 -->
-        <div class="dark:bg-gray-700 cart-item grid grid-cols-1 sm:grid-cols-3 items-center gap-4 border rounded-lg p-4" data-price="15.99">
-        <div class="flex items-center gap-4 justify-center sm:justify-start">
-            <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" class="w-16">
-            <span class="font-semibold">Mouse</span>
-        </div>
+            <div class="flex justify-center sm:justify-end items-center gap-4">
+                <span class="price font-semibold">$31.98</span>
+                <button onclick="removeItem(this)">✕</button>
+            </div>
+            </div>
+            <!-- ITEM5 -->
+            <div class="dark:bg-gray-700 cart-item grid grid-cols-1 sm:grid-cols-3 items-center gap-4 border rounded-lg p-4" data-price="15.99">
+            <div class="flex items-center gap-4 justify-center sm:justify-start">
+                <img src="Images/Cart/mouse.png" class="w-16">
+                <span class="font-semibold">Mouse</span>
+            </div>
 
-        <div class="flex justify-center items-center gap-3">
-            <button onclick="changeQty(this,-1)" class="px-3 py-1 border rounded">−</button>
-            <span class="qty min-w-[24px] text-center">2</span>
-            <button onclick="changeQty(this,1)" class="px-3 py-1 border rounded">+</button>
-        </div>
+            <div class="flex justify-center items-center gap-3">
+                <button onclick="changeQty(this,-1)" class="px-3 py-1 border rounded">−</button>
+                <span class="qty min-w-[24px] text-center">2</span>
+                <button onclick="changeQty(this,1)" class="px-3 py-1 border rounded">+</button>
+            </div>
 
-        <div class="flex justify-center sm:justify-end items-center gap-4">
-            <span class="price font-semibold">$31.98</span>
-            <button onclick="removeItem(this)">✕</button>
-        </div>
-        </div>
-        <!-- ITEM6 -->
-        <div class="dark:bg-gray-700 cart-item grid grid-cols-1 sm:grid-cols-3 items-center gap-4 border rounded-lg p-4" data-price="15.99">
-        <div class="flex items-center gap-4 justify-center sm:justify-start">
-            <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" class="w-16">
-            <span class="font-semibold">Mouse</span>
-        </div>
+            <div class="flex justify-center sm:justify-end items-center gap-4">
+                <span class="price font-semibold">$31.98</span>
+                <button onclick="removeItem(this)">✕</button>
+            </div>
+            </div>
+            <!-- ITEM6 -->
+            <div class="dark:bg-gray-700 cart-item grid grid-cols-1 sm:grid-cols-3 items-center gap-4 border rounded-lg p-4" data-price="15.99">
+            <div class="flex items-center gap-4 justify-center sm:justify-start">
+                <img src="Images/Cart/mouse.png" class="w-16">
+                <span class="font-semibold">Mouse</span>
+            </div>
 
-        <div class="flex justify-center items-center gap-3">
-            <button onclick="changeQty(this,-1)" class="px-3 py-1 border rounded">−</button>
-            <span class="qty min-w-[24px] text-center">2</span>
-            <button onclick="changeQty(this,1)" class="px-3 py-1 border rounded">+</button>
-        </div>
+            <div class="flex justify-center items-center gap-3">
+                <button onclick="changeQty(this,-1)" class="px-3 py-1 border rounded">−</button>
+                <span class="qty min-w-[24px] text-center">2</span>
+                <button onclick="changeQty(this,1)" class="px-3 py-1 border rounded">+</button>
+            </div>
 
-        <div class="flex justify-center sm:justify-end items-center gap-4">
-            <span class="price font-semibold">$31.98</span>
-            <button onclick="removeItem(this)">✕</button>
-        </div>
-        </div>
-        <!-- ITEM7 -->
-        <div class="dark:bg-gray-700 cart-item grid grid-cols-1 sm:grid-cols-3 items-center gap-4 border rounded-lg p-4" data-price="15.99">
-        <div class="flex items-center gap-4 justify-center sm:justify-start">
-            <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" class="w-16">
-            <span class="font-semibold">Mouse</span>
-        </div>
+            <div class="flex justify-center sm:justify-end items-center gap-4">
+                <span class="price font-semibold">$31.98</span>
+                <button onclick="removeItem(this)">✕</button>
+            </div>
+            </div>
+            <!-- ITEM7 -->
+            <div class="dark:bg-gray-700 cart-item grid grid-cols-1 sm:grid-cols-3 items-center gap-4 border rounded-lg p-4" data-price="15.99">
+            <div class="flex items-center gap-4 justify-center sm:justify-start">
+                <img src="Images/Cart/mouse.png" class="w-16">
+                <span class="font-semibold">Mouse</span>
+            </div>
 
-        <div class="flex justify-center items-center gap-3">
-            <button onclick="changeQty(this,-1)" class="px-3 py-1 border rounded">−</button>
-            <span class="qty min-w-[24px] text-center">2</span>
-            <button onclick="changeQty(this,1)" class="px-3 py-1 border rounded">+</button>
-        </div>
+            <div class="flex justify-center items-center gap-3">
+                <button onclick="changeQty(this,-1)" class="px-3 py-1 border rounded">−</button>
+                <span class="qty min-w-[24px] text-center">2</span>
+                <button onclick="changeQty(this,1)" class="px-3 py-1 border rounded">+</button>
+            </div>
 
-        <div class="flex justify-center sm:justify-end items-center gap-4">
-            <span class="price font-semibold">$31.98</span>
-            <button onclick="removeItem(this)">✕</button>
-        </div>
-        </div>
-        <!-- ITEM8 -->
-        <div class="dark:bg-gray-700 cart-item grid grid-cols-1 sm:grid-cols-3 items-center gap-4 border rounded-lg p-4" data-price="15.99">
-        <div class="flex items-center gap-4 justify-center sm:justify-start">
-            <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" class="w-16">
-            <span class="font-semibold">Mouse</span>
-        </div>
+            <div class="flex justify-center sm:justify-end items-center gap-4">
+                <span class="price font-semibold">$31.98</span>
+                <button onclick="removeItem(this)">✕</button>
+            </div>
+            </div>
+            <!-- ITEM8 -->
+            <div class="dark:bg-gray-700 cart-item grid grid-cols-1 sm:grid-cols-3 items-center gap-4 border rounded-lg p-4" data-price="15.99">
+            <div class="flex items-center gap-4 justify-center sm:justify-start">
+                <img src="Images/Cart/mouse.png" class="w-16">
+                <span class="font-semibold">Mouse</span>
+            </div>
 
-        <div class="flex justify-center items-center gap-3">
-            <button onclick="changeQty(this,-1)" class="px-3 py-1 border rounded">−</button>
-            <span class="qty min-w-[24px] text-center">2</span>
-            <button onclick="changeQty(this,1)" class="px-3 py-1 border rounded">+</button>
-        </div>
+            <div class="flex justify-center items-center gap-3">
+                <button onclick="changeQty(this,-1)" class="px-3 py-1 border rounded">−</button>
+                <span class="qty min-w-[24px] text-center">2</span>
+                <button onclick="changeQty(this,1)" class="px-3 py-1 border rounded">+</button>
+            </div>
 
-        <div class="flex justify-center sm:justify-end items-center gap-4">
-            <span class="price font-semibold">$31.98</span>
-            <button onclick="removeItem(this)">✕</button>
-        </div>
-        </div>
+            <div class="flex justify-center sm:justify-end items-center gap-4">
+                <span class="price font-semibold">$31.98</span>
+                <button onclick="removeItem(this)">✕</button>
+            </div>
+            </div>
 
-
-        </div>
-        <div class="flex flex-col">
-            <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6 h-fit lg:sticky">
-                <h2 class="font-bold mb-4">Summary</h2>
-                <div class="space-y-2">
-                    <div class="mb-8">
-                        <div class="flex justify-between">
-                        <span>Order total</span>
-                        <span id="subtotal">$0.00</span>
-                        </div>
-                        <div class="flex justify-between">
-                        <span>Promo Code</span>
-                        <span id="subtotal">N/A</span>
-                        </div>
-                        <div class="flex justify-between">
-                        <span>Shipping</span>
-                        <span>$30.00</span>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="flex justify-between">
-                    <span>Sub total</span>
-                    <span id="total">$0.00</span>
-                    </div>
-                </div>
-                </div>
-                <button class="mt-6 w-fit self-end btn rounded">CHECKOUT ITEMS</button>
 
             </div>
-        </div>     
-    </main>
-</div>
+            <div class="flex flex-col">
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-6 h-fit lg:sticky">
+                    <h2 class="font-bold mb-4">Summary</h2>
+                    <div class="space-y-2">
+                        <div class="mb-8">
+                            <div class="flex justify-between">
+                            <span>Order total</span>
+                            <span id="subtotal">$0.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                            <span>Promo Code</span>
+                            <span id="subtotal">N/A</span>
+                            </div>
+                            <div class="flex justify-between">
+                            <span>Shipping</span>
+                            <span>$30.00</span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="flex justify-between">
+                        <span>Sub total</span>
+                        <span id="total">$0.00</span>
+                        </div>
+                    </div>
+                    </div>
+                    <button class="mt-6 w-fit self-end btn rounded">CHECKOUT ITEMS</button>
+
+                </div>
+            </div>     
+        </main>
+    </div>
 
 
 
-<script>
-        const btn = document.getElementById('themeToggle');
+    <script>
+            const SHIPPING = 30;
+            function updateTotals() {
+                let subtotal = 0;
 
-        btn.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            btn.textContent =
-            document.documentElement.classList.contains('dark') ? '🌓︎' : '🌓︎';
-        });
-        const SHIPPING = 30;
+                document.querySelectorAll('.cart-item').forEach(item => {
+                const price = parseFloat(item.dataset.price);
+                const qty = parseInt(item.querySelector('.qty').textContent);
+                subtotal += price * qty; });
 
-        function updateTotals() {
-            let subtotal = 0;
+                document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+                document.getElementById('total').textContent = `$${(subtotal + SHIPPING).toFixed(2)}`;
+            }
 
-            document.querySelectorAll('.cart-item').forEach(item => {
-            const price = parseFloat(item.dataset.price);
-            const qty = parseInt(item.querySelector('.qty').textContent);
-            subtotal += price * qty;
-            });
+            function changeQty(btn, delta) {
+                const qtyEl = btn.parentElement.querySelector('.qty');
+                let qty = parseInt(qtyEl.textContent) + delta;
+                if (qty < 1) return;
+                qtyEl.textContent = qty;
+                updateTotals();
+            }
 
-            document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
-            document.getElementById('total').textContent = `$${(subtotal + SHIPPING).toFixed(2)}`;
-        }
+            function removeItem(btn) {
+                btn.closest('.cart-item').remove();
+                updateTotals();
+            }
 
-        function changeQty(btn, delta) {
-            const qtyEl = btn.parentElement.querySelector('.qty');
-            let qty = parseInt(qtyEl.textContent) + delta;
-            if (qty < 1) return;
-            qtyEl.textContent = qty;
-            updateTotals();
-        }
+            function toggleDarkMode() {
+                document.documentElement.classList.toggle('dark');
+            }
 
-        function removeItem(btn) {
-            btn.closest('.cart-item').remove();
-            updateTotals();
-        }
-
-        function toggleDarkMode() {
-            document.documentElement.classList.toggle('dark');
-        }
-
-        function toggleMenu() {
-        document.getElementById('mobileMenu').classList.toggle('hidden');
-        }
-        updateTotals();
-</script>
+            function toggleMenu() {
+                document.getElementById('mobileMenu').classList.toggle('hidden');
+            }
+                updateTotals();
+    </script>
 
 </body>
 </html>
