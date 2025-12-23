@@ -1,43 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Services</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            candara: ['Candara', 'sans-serif']
-          }
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
         }
-      }
-    }
-  </script>
-
-  <style type="text/tailwindcss">
+    </script>
+    <style type="text/tailwindcss">
         @layer components {
-          .mycolor {
-                background: linear-gradient(90deg, #5400FF, #8453DA);
-          }
+            .btn {
+                @apply px-6 py-3 rounded-full font-bold text-white bg-gradient-to-r from-purple-600 to-indigo-600 shadow-lg;
+            }
 
-          .btn {
-              @apply px-6 py-3 rounded-full font-bold text-white bg-gradient-to-r from-purple-600 to-indigo-600 shadow-lg;
-          }
-
-          .zoom {
-              @apply transition-all duration-300 ease-out hover:scale-110 hover:shadow-2xl hover:from-purple-700 hover:to-indigo-700;
-          }
+            .zoom {
+                @apply transition-all duration-300 ease-out hover:scale-110 hover:shadow-2xl hover:from-purple-700 hover:to-indigo-700;
+            }
         }
-  </style>
+    </style>
 </head>
 
-<body class="font-candara bg-white-300 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors">
+<body class="font-[Candara] text-[#333333] bg-white-300 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors">
     <header class="w-full border-b border-gray-300 bg-white dark:bg-gray-800 dark:border-gray-700">
         <nav class="max-w-7xl mx-auto flex items-center justify-between py-2 px-6 gap-10">
             <div>
@@ -53,74 +40,71 @@
             </div>
 
             <ul class="hidden md:flex space-x-8 text-lg font-bold">
-                <li><a href="home.html" class="hover:text-purple-600">Home</a></li>
+                <li><a href="Home.html" class="hover:text-purple-600">Home</a></li>
                 <li><a href="Products.html" class="hover:text-purple-600">Products</a></li>
                 <li><a href="Service.html" class="hover:text-purple-600">Services</a></li>
                 <li><a href="Contact.html" class="hover:text-purple-600">Contact</a></li>
             </ul>
             <div class="flex gap-10">
                 <a href="Cart.html"><i class="fa-solid fa-cart-shopping text-2xl hover:text-purple-600 zoom"></i></a>
-                <a href="#"><i class="fa-solid fa-circle-user text-2xl hover:text-purple-600 zoom"></i></a>
+                <a href="Account.html"><i class="fa-solid fa-circle-user text-2xl hover:text-purple-600 zoom"></i></a>
             </div>
             <button id="themeToggle" class="text-xl px-3">🌓︎</button>
         </nav>
     </header>
 
-<section class="px-6 py-16 bg-gray-100 dark:bg-gray-900 border-gray-700">
-    <div class="text-center mb-14">
-        <h2 class="text-6xl font-bold text-purple-600 mb-4">Our services</h2>
-        <p class="max-w-2xl mx-auto text-gray-600 dark:text-white">
-        From high-performance accessories to expert repairs and gaming setup
-        consultation, we provide everything you need.
-        </p>
+    <section class="py-16 bg-gray-100 dark:bg-gray-900 border-gray-700">
+        <div class="text-center mb-14">
+            <h2 class="text-6xl font-bold text-purple-600 mb-4">Our services</h2>
+            <p class="max-w-2xl mx-auto text-gray-600 dark:text-white">
+            From high-performance accessories to expert repairs and gaming setup
+            consultation, we provide everything you need.
+            </p>
+        </div>
+
+    <div class="grid gap-20 px-10 mx-auto sm:grid-cols-2 lg:grid-cols-3">
+        <!--card1-->
+            <div class="bg-white p-10 rounded-xl zoom dark:bg-gray-800">
+                <img src="Images/Services/retail.png" class=" mb-6 object-cover" />
+                <div class="flex justify-center">
+                    <div class="relative w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg zoom"><i class="fa-solid fa-basket-shopping text-white text-xl relative z-10"></i></div>
+                </div>
+                    <h3 class="text-4xl font-bold text-center mt-6 text-purple-600">Accessories Retail</h3>
+                    <p class="text-center text-gray-600 dark:text-gray-400 mt-3">
+                        A wide variety of gaming peripherals including keyboards, mice, headsets, controllers, and more.
+                    </p>
+            </div>
+        <!--card2-->
+            <div class="bg-white p-10 rounded-xl zoom dark:bg-gray-800">
+                <img src="Images/Services/repair.png" class=" mb-6 object-cover rounded" />
+                <div class="flex justify-center">
+                    <div class="relative w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg zoom"><i class="fa-solid fa-screwdriver-wrench text-white text-xl relative z-10"></i></div>
+                </div>
+                    <h3 class="text-4xl font-bold text-center mt-6 text-purple-600">Repair</h3>
+                    <p class="text-center text-gray-600 dark:text-gray-400 mt-3">
+                        Reliable repair service for damaged or malfunctioning gaming devices with quality assurance.
+                    </p>
+            </div>
+        <!--card3-->
+            <div class="bg-white p-10 rounded-xl zoom dark:bg-gray-800">
+                <img src="Images/Services/consult.png" class=" mb-6 object-cover rounded" />
+                <div class="flex justify-center">
+                    <div class="relative w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg zoom"><i class="fa-solid fa-handshake-angle text-white text-xl relative z-10"></i></div>
+                </div>
+                    <h3 class="text-4xl font-bold text-center mt-6 text-purple-600">Gaming Setup Counsultation</h3>
+                    <p class="text-center text-gray-600 dark:text-gray-400 mt-3">
+                        Personalized advice and planning to build the perfect gaming environment for individuals or companies.
+                    </p>
+            </div>
     </div>
-
-  <div class="grid gap-20 px-10 sm:grid-cols-2 lg:grid-cols-3">
-    <!--card1-->
-        <div class="bg-white p-10 rounded-xl zoom dark:bg-gray-800">
-            <img src="Images/Services/image.png" class=" mb-6 object-cover" />
-            <div class="flex justify-center">
-                <div class="relative w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg zoom"><i class="fa-solid fa-basket-shopping text-white text-xl relative z-10"></i></div>
-            </div>
-                <h3 class="text-4xl font-bold text-center mt-6 text-purple-600">Accessories Retail</h3>
-                <p class="text-center text-gray-600 dark:text-gray-400 mt-3">
-                    A wide variety of gaming peripherals including keyboards, mice, headsets, controllers, and more.
-                </p>
-        </div>
-    <!--card2-->
-        <div class="bg-white p-10 rounded-xl zoom dark:bg-gray-800">
-            <img src="Images/Services/image.png" class=" mb-6 object-cover" />
-            <div class="flex justify-center">
-                <div class="relative w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg zoom"><i class="fa-solid fa-screwdriver-wrench text-white text-xl relative z-10"></i></div>
-            </div>
-                <h3 class="text-4xl font-bold text-center mt-6 text-purple-600">Repair</h3>
-                <p class="text-center text-gray-600 dark:text-gray-400 mt-3">
-                    Reliable repair service for damaged or malfunctioning gaming devices with quality assurance.
-                </p>
-        </div>
-    <!--card3-->
-        <div class="bg-white p-10 rounded-xl zoom dark:bg-gray-800">
-            <img src="Images/Services/image.png" class=" mb-6 object-cover" />
-            <div class="flex justify-center">
-                <div class="relative w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg zoom"><i class="fa-solid fa-handshake-angle text-white text-xl relative z-10"></i></div>
-            </div>
-                <h3 class="text-4xl font-bold text-center mt-6 text-purple-600">Gaming Setup Counsultation</h3>
-                <p class="text-center text-gray-600 dark:text-gray-400 mt-3">
-                    Personalized advice and planning to build the perfect gaming environment for individuals or companies.
-                </p>
-        </div>
-
-
-
-  </div>
-</section>
+    </section>
 
     <footer class="border-t border-gray-200 dark:bg-gray-800 dark:border-gray-700 py-6">
         <div class="max-w-7xl mx-auto px-6 flex flex-col items-center justify-between space-y-4 md:space-y-0">
             <div>
                 <img src="/Images/logo.png" alt="Logo VT" class="w-20">
             </div>
-                <ul class="flex flex-cols font-bold text-3xl py-4 gap-10">
+                <ul class="flex flex-cols dark:text-white font-bold text-lg lg:text-3xl py-4 gap-4 lg:gap-10 justify-center flex-wrap">
                     <li>MAIN</li>
                     <li>PRODUCTS</li>
                     <li>BLOG</li>
@@ -128,31 +112,28 @@
                     <li>CONTACTS</li>
                 </ul>
             <div class="w-full h-px bg-gray-400 my-4"></div>
-            <div class="flex items-center space-x-4 text-lg">
-                <span>© 2025 VTStore</span>
-            </div>
+
+            <div class="flex items-center space-x-4 text-lg"><span>© 2025 VTStore</span></div>
+
             <div class="flex space-x-4 text-sm text-gray-600 dark:text-white">
-                <a href="#" class="hover:text-purple-600">Privacy Policy</a>
-                <span>|</span>
-                <a href="#" class="hover:text-purple-600">Terms of Service</a>
-                <span>|</span>
-                <a href="#" class="hover:text-purple-600">FAQ</a>
-                <span>|</span>
+                <a href="#" class="hover:text-purple-600">Privacy Policy</a><span>|</span>
+                <a href="#" class="hover:text-purple-600">Terms of Service</a><span>|</span>
+                <a href="#" class="hover:text-purple-600">FAQ</a><span>|</span>
                 <a href="#" class="hover:text-purple-600">Support</a>
             </div>
         </div>
     </footer>
 
-<script>
-      // Dark mode 
-          const btn = document.getElementById('themeToggle');
+    <script>
+            const btn = document.getElementById('themeToggle');
 
-          btn.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            btn.textContent =
-              document.documentElement.classList.contains('dark') ? '🌓︎' : '🌓︎';
-          });
-</script>
+            btn.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                btn.textContent =
+                document.documentElement.classList.contains('dark') ? '🌓︎' : '🌓︎';
+            });
+            if (localStorage.getItem("theme") === "dark") { document.documentElement.classList.add("dark"); }
+    </script>
 
 </body>
 </html>
